@@ -14,7 +14,7 @@ module Mistusica
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'http://127.0.0.1:5500', 'https://srnascimento40.github.io/mistusica/'
+        origins 'http://127.0.0.1:5500', 'https://srnascimento40.github.io'
         resource '*', 
           headers: :any,
           methods: [:get, :post, :put, :patch, :delete, :options, :head]
