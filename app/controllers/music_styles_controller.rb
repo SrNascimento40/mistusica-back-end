@@ -28,6 +28,32 @@ class MusicStylesController < ApplicationController
           # Retorna uma resposta de erro
           render json: { error: "Invalid input. Expected an array of strings." }, status: :unprocessable_entity
         end    
-    end    
+    end
+
+    def list_style
+        styles = MusicStyle.all
+
+        if styles.any?
+            render json: { styles: styles.map(&:name) }
+        else
+            render json: { message: "No styles found" }, status: :not_found
+        end
+    end
+
+    def delete_style
+        style = MusicStyle.find_by(name: params[:name])
+
+        if style
+            style.destroy
+            render json: { message: "Music style deleted successfully" }, status: :ok
+        else
+            render json: { error: "Music style not found" }, status: :not_found
+        end
+    end
+
+    def delete_all_styles
+        MusicStyle.destroy_all
+        render json: { message: "All music styles deleted successfully" }, status: :ok
+    end
 end
   

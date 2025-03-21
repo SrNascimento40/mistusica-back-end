@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     collection do
       get 'generate'
       post 'add_style'
+      get 'list_style'
+      post 'delete_style'
+      get 'delete_all_styles'
     end
   end
   
