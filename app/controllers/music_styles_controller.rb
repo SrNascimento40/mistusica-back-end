@@ -1,5 +1,5 @@
 class MusicStylesController < ApplicationController
-    skip_before_action :verify_authenticity_token, only: [:add_style] 
+    skip_before_action :verify_authenticity_token, only: [:add_style, :generate, :list_style, :delete_style, :delete_all_styles]
 
     def generate
         styles = MusicStyle.order("RANDOM()").limit(2)
