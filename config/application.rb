@@ -20,5 +20,7 @@ module Mistusica
           methods: [:get, :post, :put, :patch, :delete, :options, :head]
       end
     end
+
+    config.middleware.use Rack::ContentType, 'application/json'
   end
 end

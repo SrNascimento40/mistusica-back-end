@@ -7,7 +7,7 @@ class MusicStylesController < ApplicationController
         if styles.size < 2
             render json: { error: "Not enough styles on database, add styles to do it" }, status: :unprocessable_entity
         else
-            render json: { styles: styles.map(&:name) }
+            render json: { styles: styles.map(&:name) }, content_type: 'application/json'
         end
     end
 
