@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :music_styles, only: [] do
     collection do
       get 'generate'
+      post 'add_style'
     end
   end
   
