@@ -6,8 +6,8 @@ class MusicStylesController < ApplicationController
         
         puts "\n\nAccept: #{request.headers['Accept']}"
         puts "\n\nFormat: #{request.format}"
+        puts "\n\nstyles: #{styles.map(&:name)}"
 
-        
         if styles.size < 2
             render json: { error: "Not enough styles on database, add styles to do it" }, status: :unprocessable_entity
         else
