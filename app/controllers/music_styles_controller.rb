@@ -8,14 +8,10 @@ class MusicStylesController < ApplicationController
         puts "\n\nFormat: #{request.format}"
         puts "\n\nstyles: #{styles.map(&:name)}"
 
-        respond_to do |format|
-            format.any do
-                if styles.size < 2
-                    render json: { error: "Not enough styles on database, add styles to do it" }, status: :unprocessable_entity
-                else
-                    render json: { styles: styles.map(&:name) }, status: :ok
-                end
-            end
+        if styles.size < 2
+            render json: { error: "Not enough styles on database, add styles to do it" }, status: :unprocessable_entity
+        else
+            render json: { styles: styles.map(&:name) }, status: :ok
         end
     end
 
