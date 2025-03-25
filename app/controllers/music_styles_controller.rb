@@ -1,12 +1,7 @@
 class MusicStylesController < ApplicationController
-    include ActionController::AllowBrowserRequestsForJson
-    skip_allow_browser_request_format
-  
     skip_before_action :verify_authenticity_token, only: [:add_style, :generate, :list_style, :delete_style, :delete_all_styles]
 
     def generate
-        request.format = :json
-
         styles = MusicStyle.order("RANDOM()").limit(2)
         
         puts "\n\nAccept: #{request.headers['Accept']}"
