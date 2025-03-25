@@ -11,8 +11,6 @@ module Mistusica
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
     config.autoload_lib(ignore: %w[assets tasks])
-    
-    config.action_controller.allow_browser_request_format = true
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
